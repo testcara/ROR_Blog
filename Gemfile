@@ -37,6 +37,9 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'delayed_job_active_record'
+gem 'daemons'
+gem 'bcrypt'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -2,26 +2,26 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
   <title>Testapp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav>
-    <div class='container-fluid'>
-      <%= render 'shared/nav' %>
-    </div>
-  </nav>
-  <div class='menu_right'>
-  <%= link_to 'New Post', new_post_path %>
-  </div>
-  <h1 class="posts_title"> Posts </h1>
+  <header>
+    <% if current_user %>
+      Hi <%= current_user.name %>
+      |
+      <%= link_to 'Log out', logout_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Log in', login_path %>
+      |
+      <%= link_to 'Sign up', new_user_path %>
+    <% end %>
+  </header>
   <div class="row padding: 5px">
   <%= yield %>
-  </div>
-  <div class='menu_right'>
-  <%= link_to 'Back', root_path %>
   </div>
 </body>
 </html>

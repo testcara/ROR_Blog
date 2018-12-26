@@ -1,4 +1,22 @@
+<head>
+  <h1 class="posts_title"> Posts </h1>
+  <nav>
+    <div class='container-fluid'>
+      <%= render 'shared/nav' %>
+    </div>
+  </nav>
+  <div class='menu_right'>
+  <%= link_to 'New Post', new_post_path %>
+  </div>
+  <div class="row padding: 5px">
+  <%= yield %>
+  </div>
+  <div class='menu_right'>
+  <%= link_to 'Back', posts_path %>
+  </div>
+</head>
 <% @posts.each do |post| %>
      <h1><%= link_to post.title, post %></h1>
+     <p>Author: <%= link_to post.user.name, post.user %> Updated at: <%= post.updated_at %></p>
      <p><%= post.content %></p>
 <% end %>

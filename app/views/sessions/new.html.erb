@@ -1,0 +1,16 @@
+<div class="danger">
+  <%= flash[:danger] %>
+</div>
+
+<%= form_for(:session, url: login_path) do |f| %>
+ <p>Please log in(sign up first if needed) before you can enjoy the application!</p>
+  <div class="actions">
+    <%= f.label :email %> 
+    <%= f.text_field :email %> 
+    </br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    </br>
+    <%= f.submit "Log in"%>
+  </div>
+<% end %>
